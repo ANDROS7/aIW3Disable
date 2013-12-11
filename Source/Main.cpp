@@ -46,6 +46,9 @@ DWORD GetBaseAddress(DWORD PID, const char *ModuleName)
 		CloseHandle(Snapshot);
 	}
 
+	if (Result == 0)
+		printf("Could not find module :%s\n" ModuleName);
+
 	return Result;
 }
 
@@ -62,8 +65,8 @@ int main(int argc, char *argv[])
 	DWORD LibNPAddress = NULL;
 	DWORD NetRTAddress = NULL;
 	DWORD Iw4m2Address = NULL;
-	HANDLE Process = INVALID_HANDLE_VALUE;
 	DWORD ProcessID = NULL;
+	HANDLE Process = INVALID_HANDLE_VALUE;
 
 	ProcessID = GetPID("iw4");
 	Process = OpenProcess(PROCESS_ALL_ACCESS, FALSE, ProcessID);
