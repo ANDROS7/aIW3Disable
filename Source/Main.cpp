@@ -47,7 +47,7 @@ DWORD GetBaseAddress(DWORD PID, const char *ModuleName)
 	}
 
 	if (Result == 0)
-		printf("Could not find module :%s\n" ModuleName);
+		printf("Could not find module :%s\n", ModuleName);
 
 	return Result;
 }
